@@ -1,0 +1,15 @@
+@import-normalize;
+
+body {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.NavLink {
+  font-size: 20px;
+  color: currentColor;
+}
+
+.NavLink--active {
+  color: palevioletred;
+}
