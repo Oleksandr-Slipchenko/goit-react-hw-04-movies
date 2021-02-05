@@ -7,6 +7,14 @@ import MovieDetailsPage from './views/MovieDetailsPage';
 import Cast from './views/Cast';
 import Reviews from './views/Reviews';
 
+export const paths = {
+  HOMEPAGE: '/',
+  MOVIES_PAGE: '/movies',
+  MOVIE_DETAILS_PAGE: Id => `/movies/${Id}`,
+  CAST: Id => `/movies/${Id}/cast`,
+  REVIEWS: Id => `/movies/${Id}/reviews`,
+};
+
 const App = () => {
   return (
     <>
@@ -62,13 +70,28 @@ const App = () => {
           </NavLink>
         </li>
       </ul>
+
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/movies" component={MoviesPage} />
         <Route exact path="/movies/:movieId" component={MovieDetailsPage} />
         <Route exact path="/movies/:movieId/cast" component={Cast} />
         <Route path="/movies/:movieId/reviews" component={Reviews} />
+        <Route component={HomePage} />
       </Switch>
+
+      {/* <Switch>
+        <Route exact path={paths.HOMEPAGE} component={HomePage} />
+        <Route exact path={paths.MOVIES_PAGE} component={MoviesPage} />
+        <Route
+          exact
+          path={paths.MOVIE_DETAILS_PAGE(':movieId')}
+          component={MovieDetailsPage}
+        />
+        <Route exact path={paths.CAST(':movieId')} component={Cast} />
+        <Route path={paths.REVIEWS(':movieId')} component={Reviews} />
+        <Route component={HomePage} />
+      </Switch> */}
     </>
   );
 };

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+// import { paths } from '../../App';
+
 // import HomePageList from './HomePageList';
 
 export default class HomePage extends Component {
@@ -31,9 +33,10 @@ export default class HomePage extends Component {
         <ul>
           {this.state.films.map(film => (
             <li key={film.id}>
-              <Link to={`${this.props.match.url}/${film.id}`}>
-                {film.title}
-              </Link>
+              {/* <Link to={paths.HOMEPAGE}>{film.title}</Link> */}
+
+              <Link to={`${this.props.match.url}`}>{film.title}</Link>
+              {/* <Link to={`${this.props.match.url}${film.id}`}>{film.title}</Link> */}
             </li>
           ))}
         </ul>
