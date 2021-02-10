@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import CardListPreview from './CardListPreview';
 
-const CardsListDetails = ({ films, location }) => {
+const CardsList = ({ films, location }) => {
   return (
     <ul>
       {films.map(({ id, poster_path, title, vote_average, vote_count }) => (
@@ -29,4 +29,4 @@ const CardsListDetails = ({ films, location }) => {
   );
 };
 
-export default withRouter(CardsListDetails);
+export default withRouter(CardsList);

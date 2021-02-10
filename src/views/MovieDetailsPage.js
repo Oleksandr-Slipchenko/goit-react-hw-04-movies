@@ -32,6 +32,17 @@ export default class MovieDetailsPage extends Component {
     }
   }
 
+  handleGoBack = () => {
+    const { location, history } = this.props;
+
+    // if (location.state && location.state.from) {
+    //   return history.push(location.state.from);
+    // }
+    // history.push(routes.home);
+
+    history.push(location?.state?.from || routes.home);
+  };
+
   render() {
     const {
       backdrop_path,
@@ -46,7 +57,9 @@ export default class MovieDetailsPage extends Component {
 
     return (
       <div>
-        <button type="button">Back</button>
+        <button type="button" onClick={this.handleGoBack}>
+          Back
+        </button>
         <img src={`${Base_Url}${backdrop_path}`} alt={title} />
         <h3>{title}</h3>
         {/* <p>{overview}</p> */}
