@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import CardsList from 'components/CardsList';
 
 export default class MoviesPage extends Component {
   state = {
@@ -23,19 +24,13 @@ export default class MoviesPage extends Component {
   }
 
   render() {
+    const { films } = this.state;
     return (
       <>
-        <h1>Movies Page</h1>
-        <ul>
-          {this.state.films.map(film => (
-            <li key={film.id}>
-              {film.title}
-              <Link to={`${this.props.match.url}/${film.id}`}>
-                {film.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <h1>Поиск кинофильма по ключевому слову:</h1>
+        <div>
+          <CardsList films={films} />
+        </div>
       </>
     );
   }
