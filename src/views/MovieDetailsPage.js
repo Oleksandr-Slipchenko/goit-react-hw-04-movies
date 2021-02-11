@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+// import Cast from './Cast';
 
 import { routes } from '../routes';
 // import Reviews from './Reviews';
+
+const Cast = lazy(() =>
+  import('./Cast.js' /* webpackChunkName: "cast-view" */),
+);
 
 export default class MovieDetailsPage extends Component {
   state = {
@@ -76,14 +81,11 @@ export default class MovieDetailsPage extends Component {
 
         {/* Пробовал роут сделать, для передачи пропсов */}
 
-        {/* {overview && (
-          <Route
-            path={`${match.path}/reviews`}
-            render={props => {
-              <Reviews {...props} overview={overview} />;
-            }}
-          />
-        )} */}
+        <Route
+          exact
+          path={`${routes.movieDetails}${routes.cast}`}
+          component={Cast}
+        />
       </div>
     );
   }

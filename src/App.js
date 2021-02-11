@@ -15,9 +15,9 @@ const MovieDetailsPage = lazy(() =>
     './views/MovieDetailsPage.js' /* webpackChunkName: "movie-details-view" */
   ),
 );
-const Cast = lazy(() =>
-  import('./views/Cast.js' /* webpackChunkName: "cast-view" */),
-);
+// const Cast = lazy(() =>
+//   import('./views/Cast.js' /* webpackChunkName: "cast-view" */),
+// );
 const Reviews = lazy(() =>
   import('./views/Reviews.js' /* webpackChunkName: "review-view" */),
 );
@@ -36,11 +36,11 @@ const App = () => {
             path={routes.movieDetails}
             component={MovieDetailsPage}
           />
-          <Route
+          {/* <Route
             exact
             path={`${routes.movieDetails}${routes.cast}`}
             component={Cast}
-          />
+          /> */}
           <Route
             path={`${routes.movieDetails}${routes.reviews}`}
             component={Reviews}
