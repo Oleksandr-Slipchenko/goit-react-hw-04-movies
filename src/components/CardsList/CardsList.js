@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import CardListPreview from './CardListPreview';
+import s from './CardList.module.css';
 
 const CardsList = ({ films, location }) => {
   return (
-    <ul>
+    <ul className={s.list}>
       {films.map(({ id, poster_path, title, vote_average, vote_count }) => (
-        <li key={id}>
+        <li key={id} className={s.item}>
           <NavLink
-            // to={`/movies/${id}`}
             to={{
               pathname: `/movies/${id}`,
               state: {

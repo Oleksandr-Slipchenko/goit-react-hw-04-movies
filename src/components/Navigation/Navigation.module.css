@@ -1,0 +1,28 @@
+.nav {
+  margin: 0;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+
+  list-style: none;
+  border-bottom: 2px solid #3f51b5;
+}
+
+.home {
+  margin-right: 20px;
+  font-size: 25px;
+  color: black;
+}
+
+.movies {
+  font-size: 25px;
+  color: black;
+}
+
+.item:not(:last-child) {
+  margin-right: 25px;
+}
+
+.item_active {
+  color: red;
+}
