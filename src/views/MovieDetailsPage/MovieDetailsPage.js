@@ -1,4 +1,4 @@
-import React, { Component, lazy } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import * as filmsApi from '../../components/Api/Api';
 import s from './MovieDetailsPage.module.css';
 
@@ -99,16 +99,18 @@ export default class MovieDetailsPage extends Component {
           </NavLink>
         </div>
 
-        <Route
-          exact
-          path={`${routes.movieDetails}${routes.cast}`}
-          component={Cast}
-        />
-        <Route
-          exact
-          path={`${routes.movieDetails}${routes.reviews}`}
-          component={Reviews}
-        />
+        <Suspense>
+          <Route
+            exact
+            path={`${routes.movieDetails}${routes.cast}`}
+            component={Cast}
+          />
+          <Route
+            exact
+            path={`${routes.movieDetails}${routes.reviews}`}
+            component={Reviews}
+          />
+        </Suspense>
       </div>
     );
   }
